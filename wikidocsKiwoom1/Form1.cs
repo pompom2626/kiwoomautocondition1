@@ -572,6 +572,9 @@ namespace wikidocsKiwoom1
             {
                 if (autoRuleDataGridView.SelectedCells.Count > 0)
                 {
+                    //예외처리해야함 v0.1
+         
+
                     int rowIndex = autoRuleDataGridView.SelectedCells[0].RowIndex;
                     autoRuleDataGridView["거래규칙_상태", rowIndex].Value = "시작";
 
