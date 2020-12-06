@@ -66,6 +66,7 @@
             this.autoSellOrderComboBox = new System.Windows.Forms.ComboBox();
             this.stockTextBox = new System.Windows.Forms.TextBox();
             this.orderComboBox = new System.Windows.Forms.ComboBox();
+            this.StrategyStocksDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitPriceNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitNumberNumericUpDown)).BeginInit();
@@ -76,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.autoRuleDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitProfitRateNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitLossNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StrategyStocksDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI1
@@ -239,9 +241,9 @@
             this.stockCodeLabel.AutoSize = true;
             this.stockCodeLabel.Location = new System.Drawing.Point(22, 630);
             this.stockCodeLabel.Name = "stockCodeLabel";
-            this.stockCodeLabel.Size = new System.Drawing.Size(113, 15);
+            this.stockCodeLabel.Size = new System.Drawing.Size(55, 15);
             this.stockCodeLabel.TabIndex = 18;
-            this.stockCodeLabel.Text = "stockCodeLabel";
+            this.stockCodeLabel.Text = "005930";
             // 
             // orderPriceNumericUpDown
             // 
@@ -343,9 +345,9 @@
             this.limitBuyingPerStockLabel.AutoSize = true;
             this.limitBuyingPerStockLabel.Location = new System.Drawing.Point(937, 391);
             this.limitBuyingPerStockLabel.Name = "limitBuyingPerStockLabel";
-            this.limitBuyingPerStockLabel.Size = new System.Drawing.Size(55, 15);
+            this.limitBuyingPerStockLabel.Size = new System.Drawing.Size(111, 15);
             this.limitBuyingPerStockLabel.TabIndex = 29;
-            this.limitBuyingPerStockLabel.Text = "005930";
+            this.limitBuyingPerStockLabel.Text = "limitbuyperstock";
             // 
             // conditionComboBox
             // 
@@ -401,11 +403,21 @@
             this.orderComboBox.Size = new System.Drawing.Size(121, 23);
             this.orderComboBox.TabIndex = 36;
             // 
+            // StrategyStocksDataGridView
+            // 
+            this.StrategyStocksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StrategyStocksDataGridView.Location = new System.Drawing.Point(284, 580);
+            this.StrategyStocksDataGridView.Name = "StrategyStocksDataGridView";
+            this.StrategyStocksDataGridView.RowTemplate.Height = 27;
+            this.StrategyStocksDataGridView.Size = new System.Drawing.Size(435, 150);
+            this.StrategyStocksDataGridView.TabIndex = 37;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 769);
+            this.ClientSize = new System.Drawing.Size(1436, 803);
+            this.Controls.Add(this.StrategyStocksDataGridView);
             this.Controls.Add(this.orderComboBox);
             this.Controls.Add(this.stockTextBox);
             this.Controls.Add(this.autoSellOrderComboBox);
@@ -455,6 +467,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.autoRuleDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitProfitRateNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitLossNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StrategyStocksDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,6 +512,7 @@
         private System.Windows.Forms.ComboBox autoSellOrderComboBox;
         private System.Windows.Forms.TextBox stockTextBox;
         private System.Windows.Forms.ComboBox orderComboBox;
+        private System.Windows.Forms.DataGridView StrategyStocksDataGridView;
     }
 }
 

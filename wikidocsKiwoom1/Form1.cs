@@ -16,6 +16,7 @@ namespace wikidocsKiwoom1
         List<AutoTradingRule> autoTradingRuleList;
         List<stockBalance> stockBalanceList;
         List<outstanding> outstandingList;
+        List<KeyValuePair<string, string>> jongMok = new List<KeyValuePair<string, string>>();
 
         int autoSreenNumber = 1000;
         int autoRuleID = 0;
@@ -92,6 +93,17 @@ namespace wikidocsKiwoom1
                     axKHOpenAPI1.SendCondition("5101", e.strConditionName, e.nIndex, 1);
 
                 }
+                string[] jongCodeList = stockCodeList.Split(';');
+                // List<KeyValuePair<string, string>> jongMok = new List<KeyValuePair<string, string>>() ;
+
+                for (int i = 0; i < jongCodeList.Length; i++)
+                {
+                    string jongMokName = axKHOpenAPI1.GetMasterCodeName(jongCodeList[i]);
+                    jongMok.Add(new KeyValuePair<string, string>(jongCodeList[i], jongMokName));
+                }
+
+                StrategyStocksDataGridView.DataSource = jongMok;
+
             }
             else if (e.strCodeList.Length == 0)
             {
@@ -421,13 +433,13 @@ namespace wikidocsKiwoom1
                     //autoRuleDataGridView.Rows.Add();
                     for (int i = 0; i < autoRuleID; i++)
                     {
-                        autoRuleDataGridView["거래규칙_번호", i ].Value = autoTradingRuleList[i].번호;
-                        autoRuleDataGridView["거래규칙_조건식", i ].Value = autoTradingRuleList[i].조건식이름;
+                        autoRuleDataGridView["거래규칙_번호", i].Value = autoTradingRuleList[i].번호;
+                        autoRuleDataGridView["거래규칙_조건식", i].Value = autoTradingRuleList[i].조건식이름;
                         autoRuleDataGridView["거래규칙_매입제한_금액", i].Value = autoTradingRuleList[i].매입제한_금액;
                         autoRuleDataGridView["거래규칙_매입제한_종목_개수", i].Value = autoTradingRuleList[i].매입제한_종목_개수;
                         autoRuleDataGridView["거래규칙_종목당_매수금액", i].Value = autoTradingRuleList[i].종목당_매수금액;
-                        autoRuleDataGridView["거래규칙_매수_거래구분", i ].Value = autoTradingRuleList[i].매수_거래구분;
-                        autoRuleDataGridView["거래규칙_매도_거래구분", i ].Value = autoTradingRuleList[i].매도_거래구분;
+                        autoRuleDataGridView["거래규칙_매수_거래구분", i].Value = autoTradingRuleList[i].매수_거래구분;
+                        autoRuleDataGridView["거래규칙_매도_거래구분", i].Value = autoTradingRuleList[i].매도_거래구분;
                         autoRuleDataGridView["거래규칙_이익률", i].Value = autoTradingRuleList[i].이익률;
                         autoRuleDataGridView["거래규칙_손절률", i].Value = autoTradingRuleList[i].손절률;
                         autoRuleDataGridView["거래규칙_상태", i].Value = autoTradingRuleList[i].상태;
@@ -573,7 +585,7 @@ namespace wikidocsKiwoom1
                 if (autoRuleDataGridView.SelectedCells.Count > 0)
                 {
                     //예외처리해야함 v0.1
-         
+
 
                     int rowIndex = autoRuleDataGridView.SelectedCells[0].RowIndex;
                     autoRuleDataGridView["거래규칙_상태", rowIndex].Value = "시작";
@@ -583,8 +595,20 @@ namespace wikidocsKiwoom1
                     autoSreenNumber++;
                     string scrNumber = autoSreenNumber.ToString();
 
-                    axKHOpenAPI1.SendCondition(scrNumber, autoTradingArray[1], int.Parse(autoTradingArray[0]), 0);
-                    axKHOpenAPI1.SendCondition(scrNumber, autoTradingArray[1], int.Parse(autoTradingArray[0]), 1);
+                    string conditionList2 = axKHOpenAPI1.GetConditionNameList();
+                    string[] test = conditionList2.Split(';');
+                    int selectedIndex = 0;
+                    for (int i = 0; i < test.Length-1; i++)
+                    {
+                        if(test[i].Split('^')[1] == autoTradingArray[0])
+                        {
+                            selectedIndex = i;
+                        }
+                    }
+
+                    //int lRet =axKHOpenAPI1.SendCondition(/*scrNumber*/ "0156", autoTradingArray[0], 3, 1);
+                    axKHOpenAPI1.SendCondition(scrNumber, autoTradingArray[0], /*int.Parse(autoTradingArray[0])*/ selectedIndex, 0);
+                    axKHOpenAPI1.SendCondition(scrNumber, autoTradingArray[0], /*int.Parse(autoTradingArray[0])*/ selectedIndex, 1);
                 }
             }
             else if (sender.Equals(autoTradingStopButton))
