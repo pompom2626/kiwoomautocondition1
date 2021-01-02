@@ -195,7 +195,14 @@ namespace wikidocsKiwoom1
 
             for (int i = 0; i < autoTradingRuleList.Count; i++)
             {
-                if (autoTradingRuleList[i].상태 == "시작")
+                if (autoRuleDataGridView.SelectedCells.Count > 0)
+                {
+                    //예외처리해야함 v0.1
+                    int rowIndex = autoRuleDataGridView.SelectedCells[0].RowIndex;
+                    autoRuleDataGridView["거래규칙_상태", rowIndex].Value = "시작";
+                    autoTradingRuleList[rowIndex].상태 = "시작";
+                }
+                    if (autoTradingRuleList[i].상태 == "시작")
                 {
                     double profitRate = autoTradingRuleList[i].이익률 * 0.01;
                     double lossRate = autoTradingRuleList[i].손절률 * 0.01;

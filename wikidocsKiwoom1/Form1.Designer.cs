@@ -67,6 +67,14 @@
             this.stockTextBox = new System.Windows.Forms.TextBox();
             this.orderComboBox = new System.Windows.Forms.ComboBox();
             this.StrategyStocksDataGridView = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitPriceNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.limitNumberNumericUpDown)).BeginInit();
@@ -181,14 +189,24 @@
             // 
             // limitPriceNumericUpDown
             // 
-            this.limitPriceNumericUpDown.Location = new System.Drawing.Point(23, 496);
+            this.limitPriceNumericUpDown.Location = new System.Drawing.Point(124, 499);
+            this.limitPriceNumericUpDown.Maximum = new decimal(new int[] {
+            1569325055,
+            23283064,
+            0,
+            0});
             this.limitPriceNumericUpDown.Name = "limitPriceNumericUpDown";
             this.limitPriceNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.limitPriceNumericUpDown.TabIndex = 11;
             // 
             // limitNumberNumericUpDown
             // 
-            this.limitNumberNumericUpDown.Location = new System.Drawing.Point(23, 537);
+            this.limitNumberNumericUpDown.Location = new System.Drawing.Point(124, 540);
+            this.limitNumberNumericUpDown.Maximum = new decimal(new int[] {
+            -1981284353,
+            -1966660860,
+            0,
+            0});
             this.limitNumberNumericUpDown.Name = "limitNumberNumericUpDown";
             this.limitNumberNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.limitNumberNumericUpDown.TabIndex = 12;
@@ -213,7 +231,7 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(23, 589);
+            this.passwordTextBox.Location = new System.Drawing.Point(54, 593);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 25);
             this.passwordTextBox.TabIndex = 15;
@@ -247,7 +265,7 @@
             // 
             // orderPriceNumericUpDown
             // 
-            this.orderPriceNumericUpDown.Location = new System.Drawing.Point(25, 656);
+            this.orderPriceNumericUpDown.Location = new System.Drawing.Point(124, 658);
             this.orderPriceNumericUpDown.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -259,7 +277,7 @@
             // 
             // orderNumberNumericUpDown
             // 
-            this.orderNumberNumericUpDown.Location = new System.Drawing.Point(25, 688);
+            this.orderNumberNumericUpDown.Location = new System.Drawing.Point(124, 690);
             this.orderNumberNumericUpDown.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -352,7 +370,7 @@
             // conditionComboBox
             // 
             this.conditionComboBox.FormattingEnabled = true;
-            this.conditionComboBox.Location = new System.Drawing.Point(754, 434);
+            this.conditionComboBox.Location = new System.Drawing.Point(754, 424);
             this.conditionComboBox.Name = "conditionComboBox";
             this.conditionComboBox.Size = new System.Drawing.Size(121, 23);
             this.conditionComboBox.TabIndex = 30;
@@ -360,7 +378,7 @@
             // autoBuyOrderComboBox
             // 
             this.autoBuyOrderComboBox.FormattingEnabled = true;
-            this.autoBuyOrderComboBox.Location = new System.Drawing.Point(754, 476);
+            this.autoBuyOrderComboBox.Location = new System.Drawing.Point(812, 501);
             this.autoBuyOrderComboBox.Name = "autoBuyOrderComboBox";
             this.autoBuyOrderComboBox.Size = new System.Drawing.Size(121, 23);
             this.autoBuyOrderComboBox.TabIndex = 31;
@@ -375,7 +393,7 @@
             // 
             // limitLossNumericUpDown
             // 
-            this.limitLossNumericUpDown.Location = new System.Drawing.Point(1096, 424);
+            this.limitLossNumericUpDown.Location = new System.Drawing.Point(1129, 424);
             this.limitLossNumericUpDown.Name = "limitLossNumericUpDown";
             this.limitLossNumericUpDown.Size = new System.Drawing.Size(120, 25);
             this.limitLossNumericUpDown.TabIndex = 33;
@@ -383,14 +401,14 @@
             // autoSellOrderComboBox
             // 
             this.autoSellOrderComboBox.FormattingEnabled = true;
-            this.autoSellOrderComboBox.Location = new System.Drawing.Point(929, 456);
+            this.autoSellOrderComboBox.Location = new System.Drawing.Point(812, 534);
             this.autoSellOrderComboBox.Name = "autoSellOrderComboBox";
             this.autoSellOrderComboBox.Size = new System.Drawing.Size(121, 23);
             this.autoSellOrderComboBox.TabIndex = 34;
             // 
             // stockTextBox
             // 
-            this.stockTextBox.Location = new System.Drawing.Point(754, 515);
+            this.stockTextBox.Location = new System.Drawing.Point(793, 460);
             this.stockTextBox.Name = "stockTextBox";
             this.stockTextBox.Size = new System.Drawing.Size(100, 25);
             this.stockTextBox.TabIndex = 35;
@@ -398,7 +416,7 @@
             // orderComboBox
             // 
             this.orderComboBox.FormattingEnabled = true;
-            this.orderComboBox.Location = new System.Drawing.Point(929, 515);
+            this.orderComboBox.Location = new System.Drawing.Point(812, 563);
             this.orderComboBox.Name = "orderComboBox";
             this.orderComboBox.Size = new System.Drawing.Size(121, 23);
             this.orderComboBox.TabIndex = 36;
@@ -412,11 +430,91 @@
             this.StrategyStocksDataGridView.Size = new System.Drawing.Size(435, 150);
             this.StrategyStocksDataGridView.TabIndex = 37;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(881, 426);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "이익률";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1071, 426);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "손절률";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 501);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 15);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "메입제한금액";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 542);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 15);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "매입제한종목수";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(720, 506);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 15);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "매수거래구분";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(722, 537);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 15);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "매도거래구분";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(720, 563);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 15);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "거래구분";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(725, 463);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 15);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "주식검색";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1436, 803);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.StrategyStocksDataGridView);
             this.Controls.Add(this.orderComboBox);
             this.Controls.Add(this.stockTextBox);
@@ -513,6 +611,14 @@
         private System.Windows.Forms.TextBox stockTextBox;
         private System.Windows.Forms.ComboBox orderComboBox;
         private System.Windows.Forms.DataGridView StrategyStocksDataGridView;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
