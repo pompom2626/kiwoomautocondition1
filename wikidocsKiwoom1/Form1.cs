@@ -209,8 +209,12 @@ namespace wikidocsKiwoom1
 
                     for (int j = 0; j < autoTradingRuleList[i].autoTradingPurchaseStockList.Count; j++)
                     {
-                        autoTradingRuleList[i].autoTradingPurchaseStockList[j].currentPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 10));
-                        autoTradingRuleList[i].autoTradingPurchaseStockList[j].boughtCount = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 930));
+                        string test = axKHOpenAPI1.GetCommRealData(e.sRealKey, 10);
+                        string test2 = axKHOpenAPI1.GetCommRealData(e.sRealKey, 302);
+
+
+                        //autoTradingRuleList[i].autoTradingPurchaseStockList[j].currentPrice = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 10));
+                       // autoTradingRuleList[i].autoTradingPurchaseStockList[j].boughtCount = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealKey, 930));
 
                         string stockCode = autoTradingRuleList[i].autoTradingPurchaseStockList[j].stockCode;
                         int currentPrice = autoTradingRuleList[i].autoTradingPurchaseStockList[j].currentPrice;
@@ -219,11 +223,11 @@ namespace wikidocsKiwoom1
                         string orderType = autoTradingRuleList[i].매도_거래구분;
                         string[] orderTypeArray = orderType.Split(':');
 
-                        if (currentPrice == (boughtPrice + (boughtPrice * profitRate)))
+                        if (currentPrice >= (boughtPrice + (boughtPrice * profitRate)))
                         {
                             axKHOpenAPI1.SendOrder("이익율매도주문", "8889", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
                         }
-                        else if (currentPrice == (boughtPrice - (boughtPrice * profitRate)))
+                        else if (currentPrice <= (boughtPrice - (boughtPrice * profitRate)))
                         {
                             axKHOpenAPI1.SendOrder("손절율매도주문", "8789", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
                         }
@@ -328,6 +332,8 @@ namespace wikidocsKiwoom1
                             {
                                 string stockCode = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목코드").Trim();
                                 string stockName = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "종목명").Trim();
+                                //test
+                                string boughtCount = axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "보유수량").Trim();
                                 int stockPrice = int.Parse(axKHOpenAPI1.GetCommData(e.sTrCode, e.sRQName, i, "현재가").Replace("-", ""));
 
                                 if (autoOrderPricePerStock > stockPrice)
@@ -756,11 +762,12 @@ namespace wikidocsKiwoom1
         public int boughtCount;
         public int currentPrice;
 
-        public AutoTradingPurchaseStock(string stockCode, int boughtPrice, int currentPrice)
+        public AutoTradingPurchaseStock(string stockCode, int boughtPrice, int currentPrice /*, int boughtCount*/)
         {
             this.stockCode = stockCode;
             this.boughtPrice = boughtPrice;
             this.currentPrice = currentPrice;
+            //this.boughtCount = boughtCount;
         }
 
 
