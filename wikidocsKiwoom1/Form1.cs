@@ -197,7 +197,8 @@ namespace wikidocsKiwoom1
 
         public void onReceiveRealData(object sender, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveRealDataEvent e)
         {
-           
+            DateTime currentTime = DateTime.Now;
+
             for (int i = 0; i < autoTradingRuleList.Count; i++)
             {
                 if (autoRuleDataGridView.SelectedCells.Count > 0)
@@ -217,6 +218,9 @@ namespace wikidocsKiwoom1
                         if (e.sRealType == "주식체결")
                         {
                             string test = axKHOpenAPI1.GetCommRealData(e.sRealType, 10).Replace("+", "");
+                            int matchTime = int.Parse(axKHOpenAPI1.GetCommRealData(e.sRealType, 20));
+                            int compareTime=int.Parse(currentTime.ToString("HHmmss"));
+
 
                             // string test2 = axKHOpenAPI1.GetCommRealData(e.sRealType, 930);
                             // string testJango = axKHOpenAPI1.GetChejanData(e.sRealKey, 930);
@@ -238,13 +242,16 @@ namespace wikidocsKiwoom1
                             string orderType = autoTradingRuleList[i].매도_거래구분;
                             string[] orderTypeArray = orderType.Split(':');
 
-                            if (currentPrice >= (boughtPrice + (boughtPrice * profitRate)))
+                            if (compareTime > matchTime && e.sRealKey == stockCode)
                             {
-                                axKHOpenAPI1.SendOrder("이익율매도주문", "8889", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
-                            }
-                            else if (currentPrice <= (boughtPrice - (boughtPrice * profitRate)))
-                            {
-                                axKHOpenAPI1.SendOrder("손절율매도주문", "8789", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
+                                if (currentPrice >= (boughtPrice + (boughtPrice * profitRate)))
+                                {
+                                    axKHOpenAPI1.SendOrder("이익율매도주문", "8889", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
+                                }
+                                else if (currentPrice <= (boughtPrice - (boughtPrice * profitRate)))
+                                {
+                                    axKHOpenAPI1.SendOrder("손절율매도주문", "8789", ACCOUNT_NUMBER, 2, stockCode, boughtCount, currentPrice, orderTypeArray[0], "");
+                                }
                             }
                         }
 
